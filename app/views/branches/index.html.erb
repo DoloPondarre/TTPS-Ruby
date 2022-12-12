@@ -1,0 +1,14 @@
+<h1>Branches</h1>
+
+<div id="branches">
+  <% @branches.each do |branch| %>
+    <%= render branch %>
+    <p>
+      <%= link_to "Show this branch", branch %>
+    </p>
+  <% end %>
+</div><br>
+
+<% if can? :create, Branch %>
+  <%= link_to "New branch", new_branch_path %>
+<% end %>

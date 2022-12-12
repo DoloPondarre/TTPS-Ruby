@@ -1,0 +1,32 @@
+<div id="<%= dom_id user %>">
+  <p>
+    <strong>Name:</strong>
+    <%= user.name %>
+  </p>
+
+  <p>
+    <strong>Role:</strong>
+    <% if user.role_id == 1 %>
+      <%= 'Administrator' %>
+    <% else %>
+      <% if user.role_id == 2 %>
+        <%= 'Staff' %>
+      <% else %>
+        <%= 'Client' %>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= user.email %>
+  </p>
+
+  <% if user.role_id == 2 %>
+    <p>
+      <strong>Branch:</strong>
+      <%= Branch.find(user.branch_id).name %>
+    </p>
+  <% end %>
+
+</div>

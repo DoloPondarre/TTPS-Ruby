@@ -1,0 +1,30 @@
+<%= render @branch %>
+
+<% unless Schedule.find_by(branch_id: @branch.id).nil? %>
+  <div>
+      <p>
+        <strong>Schedules:</strong>
+        <% Schedule.where(branch_id: @branch.id).each do |sch| %>
+          <li>
+            <%= sch.day %><%= ':' %>
+            <%= sch.hourI.strftime("%H:%M") %><%=' -' %>
+            <%= sch.hourF.strftime("%H:%M") %>
+          </li>
+        <% end %>
+      </p>
+  </div>
+<% end %>
+
+<div>
+  <td>
+    <% if can? :update, @branch %>
+      <%= link_to "Edit this branch", edit_branch_path(@branch) %>
+    <% end %>
+  </td>
+  <%= link_to "Back to branches", branches_path %>
+  <td>
+    <% if can? :destroy, @branch %>
+      <%= button_to "Destroy this branch", @branch, form: { data: { 'turbo-confirm': 'Are you sure?' } }, method: :delete %>
+    <% end %>
+  </td>
+</div>

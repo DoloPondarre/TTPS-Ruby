@@ -1,0 +1,16 @@
+<h1>Shifts</h1>
+
+<div id="shifts">
+  <% @shifts.each do |shift| %>
+    <% if (@current_user&.staff? && @current_user.branch_id == shift.branch_id) || shift.client_id == @current_user.id %>
+      <%= render shift %>
+      <td>
+        <%= link_to "Show this shift", shift %>
+      </td><br><br>
+    <% end %>
+  <% end %>
+</div><br>
+
+<% if can? :create, Shift %>
+  <%= link_to 'New Shift', new_shift_path %>
+<% end %>

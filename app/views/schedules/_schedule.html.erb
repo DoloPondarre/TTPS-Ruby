@@ -1,0 +1,22 @@
+<div id="<%= dom_id schedule %>">
+  <p>
+    <strong>Day:</strong>
+    <%= schedule.day %>
+  </p>
+
+  <p>
+    <strong>Opening Time:</strong>
+    <%= schedule.hourI.strftime("%H:%M") %>
+  </p>
+
+  <p>
+    <strong>Ending Time:</strong>
+    <%= schedule.hourF.strftime("%H:%M") %>
+  </p>
+
+  <p>
+    <strong>Branch:</strong>
+    <%= Branch.find(schedule.branch_id).name %>
+  </p>
+
+</div>

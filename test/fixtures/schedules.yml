@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: "Monday"
+  hourI: 2022-11-17 19:45:16
+  hourF: 2022-11-17 19:45:16
+  branch: one
+
+two:
+  day: "Monday"
+  hourI: 2022-11-17 19:45:16
+  hourF: 2022-11-17 19:45:16
+  branch: two

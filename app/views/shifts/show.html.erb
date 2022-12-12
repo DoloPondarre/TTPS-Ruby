@@ -1,0 +1,35 @@
+<%= render @shift %>
+
+<% if @shift.state == 'Atendido' %>
+  <div>
+    <p>
+      <strong>Staff:</strong>
+      <%= User.find(@shift.staff_id).name %>
+    </p>
+
+    <p>
+      <strong>Comment:</strong>
+      <%= @shift.comment %>
+    </p>
+  </div>
+<% end %>
+
+<div>
+  <td>
+    <% if can? :update, @shift %>
+      <% if @current_user.client? %>
+        <%= link_to 'Edit', edit_shift_path(@shift) %>
+      <% else %>
+        <% if @shift.state == 'Pendiente' %>
+          <%= link_to 'Attend', edit_shift_path(@shift) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </td>
+  <td>
+    <% if can? :destroy, @shift %>
+      <%= button_to 'Cancel this Turn', @shift, method: :delete, form: { data: { 'turbo-confirm': 'Are you sure?' } } %>
+    <% end %>
+  </td><br>
+  <%= link_to "Back to shifts", shifts_path %>
+</div>

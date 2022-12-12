@@ -1,0 +1,13 @@
+<%= render @role %>
+
+<p>
+  <strong>Assosciated users:</strong>
+  <%= @assosciated_users %>
+</p>
+
+<div>
+  <%= link_to "Edit this role", edit_role_path(@role) %> 
+  <%= link_to "Back to roles", roles_path %>
+
+  <%= button_to "Destroy this role", @role, form: { data: { 'turbo-confirm': 'Are you sure?' } }, method: :delete %>
+</div>

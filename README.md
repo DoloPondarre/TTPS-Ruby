@@ -14,15 +14,14 @@ ruby-3.0.0
 (Other gem dependencies will be installed automatically by Bundler.)
 
 # Installation Steps
-1. Clone repo: git clone git@github.com:jameshibbard/authentication-with-devise-and-cancancan.git
-2. Change into directory: cd authentication-with-devise-and-cancancan
+1. Clone repo: git clone https://github.com/DoloPondarre/TTPS-Ruby.git
+2. Change into directory: cd TTPS-Ruby
 3. Install gems: bundle install
-4. Install JavaScript packages: yarn install
-5. Create database: rake db:create
-6. Create tables: rake db:migrate
-7. Seed database: rake db:seed
-8. Start the server: rails s
-9. Visit http://localhost:3000/ and log in with any of the users defined in the seeds file.
+4. Create database: rake db:create
+5. Create tables: rake db:migrate
+6. Seed database: rake db:seed
+7. Start the server: rails s
+8. Visit http://localhost:3000/ and log in with any of the users defined in the seeds file.
 
 # Design Decisions
 

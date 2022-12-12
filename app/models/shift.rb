@@ -18,7 +18,7 @@ class Shift < ApplicationRecord
           ti = Schedule.find_by(branch_id: branch_id, day: day).hourI.strftime('%H%M')
           tf = Schedule.find_by(branch_id: branch_id, day: day).hourF.strftime('%H%M')
           unless ((ti..tf) === time.strftime('%H%M'))
-            errors.add(:time, message: "El horario seleccionado no se encuentra dentro del horario de atención de la sucursal seleccionada.")
+            errors.add(:time, message: "The selected hours are not within the opening hours of the selected branch.")
           end
         end
       end
@@ -28,7 +28,7 @@ class Shift < ApplicationRecord
   def turn_valid
     if (self.staff_id.nil?)
       unless Shift.find_by(branch_id: branch_id, date: date, time: time).nil?
-        errors.add(:date, message: "Turno no disponible en la sucursal seleccionada.")
+        errors.add(:date, message: "Shift not available at the selected branch.")
       end
     end
   end
